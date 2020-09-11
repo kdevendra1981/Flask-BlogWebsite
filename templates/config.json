@@ -1,0 +1,18 @@
+{
+  "params": {
+    "local_server": "True",
+    "local_uri": "mysql://root:@localhost/flaskData",
+    "prod_uri": "mysql://root:@localhost/flaskData",
+    "fb_url": "https://www.facebook.com",
+    "tw_url": "https://www.twitter.com",
+    "gh_url":"https://www.github.com",
+    "gm_user":"kdevendra1981@gmail.com",
+    "gm_password":"parv@160109",
+    "no_of_posts": 1,
+    "admin_user": "dev",
+    "admin_password": "kumar",
+    "upload_folder": "C:\\Users\\welcome\\PycharmProjects\\FlastTutorial\\static\\img",
+    "allowed_extensions": "{'png', 'jpg', 'jpeg', 'gif'}"
+
+  }
+}

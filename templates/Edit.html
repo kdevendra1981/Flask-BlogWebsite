@@ -1,0 +1,90 @@
+{% extends "layout.html" %}
+{% block title %}<title>Clean Blog - Start Bootstrap Theme</title>{% endblock %}
+{% block body %}
+
+  <!-- Page Header -->
+  <header class="masthead" style="background-image: url({{url_for('static',filename='img/contact-bg.jpg')}})">
+    <div class="overlay"></div>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto">
+          <div class="page-heading">
+            <h1>Edit Page</h1>
+            <span class="subheading">Edit or Add your posts.</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-md-10 mx-auto">
+        <p>Update post carefully.</p>
+        <!-- Contact Form - Enter your email address on line 19 of the mail/contact_me.php file to make this form work. -->
+        <!-- WARNING: Some web hosts do not allow emails to be sent through forms to common mail hosts like Gmail or Yahoo. It's recommended that you use a private domain email address! -->
+        <!-- To use the contact form, your site must be on a live web host with PHP! The form will not work locally! -->
+        <form name="saveForm" action="/save" method="post" id="saveForm" novalidate>
+          <div class="control-group">
+            <label class="label-success" for="sno">Serial No.</label>
+            <div class="form-group floating-label-form-group controls">
+              <input type="text" value="{{post.sno}}" class="form-control" name= "sno" placeholder="sno" id="sno" required data-validation-required-message="Please enter Serial Number">
+
+            </div>
+          </div>
+          <div class="control-group">
+          <label class="label-success" for="title">Title</label>
+            <div class="form-group floating-label-form-group controls">
+              <input type="text" value="{{post.title}}" class="form-control" name= "title" placeholder="Title" id="title" required data-validation-required-message="Please enter title">
+              <p class="help-block text-danger"></p>
+            </div>
+          </div>
+          <div class="control-group">
+            <label for="subtitle">Sub-Title</label>
+            <div class="form-group floating-label-form-group controls">
+              <input type="text"  value="{{post.subtitle}}" class="form-control" name= "subtitle" placeholder="subtitle" id="subtitle" required data-validation-required-message="Please enter Sub-Title">
+              <p class="help-block text-danger"></p>
+            </div>
+          </div>
+          <div class="control-group">
+            <label for="slug">Slug</label>
+            <div class="form-group floating-label-form-group controls">
+              <input type="text" value="{{post.slug}}" class="form-control" name= "slug" placeholder="slug" id="slug" required data-validation-required-message="Please enter Slug">
+              <p class="help-block text-danger"></p>
+            </div>
+          </div>
+
+          <div class="control-group">
+            <label for="content">Content</label>
+            <div class="form-group floating-label-form-group controls">
+              <textarea rows="5" class="form-control" name= "content" placeholder="Content" id="content" required data-validation-required-message="Please enter a Content.">{{post.content}}</textarea>
+              <p class="help-block text-danger"></p>
+            </div>
+          </div>
+          <div class="control-group">
+            <label for="slug">Image File</label>
+            <div class="form-group floating-label-form-group controls">
+              <input type="text" value="{{post.imgfile}}" class="form-control" name= "imgfile" placeholder="imgfile" id="imgfile" required data-validation-required-message="Please enter Slug">
+              <p class="help-block text-danger"></p>
+            </div>
+          </div>
+
+          <br>
+          <div id="success"></div>
+          <button type="submit" class="btn btn-primary" id="sendMessageButton">Save</button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <hr>
+  <script>
+  var adminBtn = document.getElementById('adminlogin');
+  adminBtn.style.visibility = 'hidden';
+
+  var logoutBtn = document.getElementById('logout');
+  logoutBtn.style.visibility = 'visible';
+
+</script>
+{% endblock %}

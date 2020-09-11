@@ -1,0 +1,108 @@
+{% extends "layout.html" %}
+{% block title %}<title>Clean Blog - Start Bootstrap Theme</title>{% endblock %}
+{% block body %}
+  <!-- Page Header -->
+  <header class="masthead" style="background-image: url({{url_for('static',filename='img/home-bg.jpg')}})">
+    <div class="overlay"></div>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto">
+          <div class="site-heading">
+            <h1>Clean Blog</h1>
+            <span class="subheading">A Blog Theme by Start Bootstrap</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-md-10 mx-auto">
+         <ul class="pagination">
+  {% if posts.has_prev %}
+   <li class="page-item"><a class="page-link" href='/posts/{{posts.prev_num}}'>Previous</a></li>
+  {% else %}
+   <li class="page-item disabled"><span class="page-link">Previous</span>
+  {% endif %}
+   </li>
+    
+{% for page in posts.iter_pages(left_edge=3, right_edge=3) %}
+  {% if page %}
+   <li class="page-item"><a class="page-link" href='/posts/{{page}}'>{{ page }}</a></li>
+  {% else %}
+   <li class="page-item disabled" id="example_ellipsis"><a href="#" class="page-link">…</a></li> 
+  {% endif %}
+  {% endfor %}
+  
+  {% if posts.has_next %}
+   <li class="page-item"><a class="page-link" href='/posts/{{posts.next_num}}'>Next</a></li>
+  {% else %}
+   <li class="page-item disabled"><span class="page-link">Next</span>
+  {% endif %}
+   </ul>
+
+<!--        need to take the posts from server-->
+
+
+    {% for post in posts.items %}
+
+        <div class="post-preview">
+          <a href="post/{{post.slug}}">
+            <h2 class="post-title">
+              {{post.title}}
+            </h2>
+            <h3 class="post-subtitle">
+              {{post.subtitle}}
+            </h3>
+          </a>
+          <p class="post-meta">Posted by
+            <a href="#">Admin</a>
+            on {{post.date}}</p>
+        </div>
+        <hr>
+    {% endfor %}
+  <ul class="pagination">
+  {% if posts.has_prev %}
+   <li class="page-item"><a class="page-link" href='/posts/{{posts.prev_num}}'>Previous</a></li>
+  {% else %}
+   <li class="page-item disabled"><span class="page-link">Previous</span>
+  {% endif %}
+   </li>
+    
+{% for page in posts.iter_pages() %}
+  {% if page %}
+   <li class="page-item"><a class="page-link" href='/posts/{{page}}'>{{ page }}</a></li>
+  {% else %}
+   <li class="page-item disabled" id="example_ellipsis"><a href="#" class="page-link">…</a></li> 
+  {% endif %}
+  {% endfor %}
+  
+  {% if posts.has_next %}
+   <li class="page-item"><a class="page-link" href='/posts/{{posts.next_num}}'>Next</a></li>
+  {% else %}
+   <li class="page-item disabled"><span class="page-link">Next</span>
+  {% endif %}
+   </ul>
+
+        <!-- Pager -->
+        <!-- <div class="clearfix">
+          <a class="btn btn-primary btn-sm float-left" href="#">&larr; Previous</a>
+          <a class="btn btn-primary btn-sm float-right" href="#">Next&rarr;</a>
+        </div> -->
+      </div>
+    </div>
+  </div>
+  <script>
+  var adminBtn = document.getElementById('adminlogin');
+  adminBtn.style.visibility = 'visible';
+
+  var logoutBtn = document.getElementById('logout');
+  logoutBtn.style.visibility = 'hidden';
+
+</script>
+{% endblock %}
+
+  <!-- Footer -->
+
